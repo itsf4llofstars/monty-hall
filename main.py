@@ -40,18 +40,23 @@ def get_users_choice():
 def pick_show_door(choice):
     """Chooses which losing door to show"""
     door_to_show = choice
-    # tff
-    while door_to_show == choice:
-        door_to_show = random.randint(0, 2)
-
-    print(choice, door_to_show)
+    while True:
+        if door_to_show == choice or DOORS[door_to_show]:
+            door_to_show = random.randint(0, 2)
+        else:
+            break
+    if 1:
+        print(DOORS)
+        print(f"Choice: {choice + 1} Door: {DOORS[choice]}")
+        print(f"Show Door: {door_to_show + 1} Door: {DOORS[door_to_show]}")
 
 
 def main():
     """main function"""
     set_winning_door()
     choosen_door = get_users_choice()
-    print(choosen_door)
+    # print(choosen_door)
+    pick_show_door(choosen_door)
 
 
 if __name__ == "__main__":
