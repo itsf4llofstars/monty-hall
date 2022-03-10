@@ -21,15 +21,24 @@ def set_winning_door():
         DOORS[0] = not DOORS[2]
         DOORS[1] = not DOORS[2]
 
-    print(DOORS)
     for _ in range(1000):
         random.shuffle(DOORS)
-    print(DOORS)
+
+
+def get_users_choice():
+    users_choice = 0
+    while 0 < users_choice < 4:
+        users_choice: int = int(input("Enter your choice of doors (1, 2, 3): "))
+        if not 0 < users_choice < 4:
+            print("\nPlease pick a number of 1, 2, or 3\n")
+    return users_choice
 
 
 def main():
     """main function"""
     set_winning_door()
+    choosen_door = get_users_choice()
+    print(choosen_door)
 
 
 if __name__ == "__main__":
