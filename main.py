@@ -9,6 +9,7 @@ DOORS = [None, None, None]
 
 
 def set_winning_door():
+    """Picks one winning door and two losing doors"""
     door = secrets.randbelow(3)
     DOORS[door] = True
     if DOORS[0] is not None:
@@ -26,12 +27,18 @@ def set_winning_door():
 
 
 def get_users_choice():
+    """Get contestants door choice"""
     users_choice = 0
     while 0 < users_choice < 4:
         users_choice: int = int(input("Enter your choice of doors (1, 2, 3): "))
         if not 0 < users_choice < 4:
             print("\nPlease pick a number of 1, 2, or 3\n")
     return users_choice
+
+
+def pick_show_door():
+    """Chooses which losing door to show"""
+    pass
 
 
 def main():
