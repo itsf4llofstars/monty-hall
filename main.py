@@ -28,12 +28,13 @@ def set_winning_door():
 def get_users_choice():
     """Get contestants door choice"""
     users_choice = 0
-    while 0 < users_choice < 4:
+    while True:
         users_choice: int = int(input("Enter your choice of doors (1, 2, 3): "))
         if not 0 < users_choice < 4:
             print("\nPlease pick a number of 1, 2, or 3\n")
-    # TODO: Fix to uc -= 1
-    return users_choice
+        else:
+            break
+    return users_choice - 1
 
 
 def pick_show_door(choice):
