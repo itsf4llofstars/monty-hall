@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """main.py"""
 import random
-import secrets
 
 # GLOBALS
 WIN_LOSS = [False, True]
@@ -10,7 +9,7 @@ DOORS = [None, None, None]
 
 def set_winning_door():
     """Picks one winning door and two losing doors"""
-    door = secrets.randbelow(3)
+    door = random.randint(0, 2)
     DOORS[door] = True
     if DOORS[0] is not None:
         DOORS[1] = not DOORS[0]
@@ -33,12 +32,18 @@ def get_users_choice():
         users_choice: int = int(input("Enter your choice of doors (1, 2, 3): "))
         if not 0 < users_choice < 4:
             print("\nPlease pick a number of 1, 2, or 3\n")
+    # TODO: Fix to uc -= 1
     return users_choice
 
 
-def pick_show_door():
+def pick_show_door(choice):
     """Chooses which losing door to show"""
-    pass
+    door_to_show = choice
+    # tff
+    while door_to_show == choice:
+        door_to_show = random.randint(0, 2)
+
+    print(choice, door_to_show)
 
 
 def main():
